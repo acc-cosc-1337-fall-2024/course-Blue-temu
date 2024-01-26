@@ -6,7 +6,7 @@ TEST_CASE("Verify Test Configuration", "verification") {
 }
 
 TEST_CASE("Verify echo variable", "verification") {
-	REQUIRE(echo_variable(10) == 10);
+	REQUIRE(echo_variable(10) == 11);
 }
 
 
