@@ -5,6 +5,11 @@ TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
 }
 
+TEST_CASE("Verify echo variable", "verification") {
+	REQUIRE(echo_variable(10) == 10);
+}
+
+
 /*test case echo_variable */
 
 /*test case add_to_double_1 with 0 as parameter*/
