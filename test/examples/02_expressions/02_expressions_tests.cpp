@@ -9,3 +9,8 @@ TEST_CASE("Verify Test Configuration", "verification") {
 TEST_CASE("Test implicit data type casting ", "verify that ints are covered to doubles at runtime") {
 	REQUIRE(convert_to_double(10, .5) == 5.0);
 }
+
+TEST_CASE("Test implicit data type casting double to int", "verify double to int conversion")
+{
+	REQUIRE(convert_double_to_int(10.99) == 10);
+}
