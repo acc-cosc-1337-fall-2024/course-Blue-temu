@@ -31,3 +31,8 @@ a static_cast conversion to int
 @param double num
 @return the static cast conversion to int
 */
+int static_cast_double_int(double num)
+{
+    auto result = static_cast<int>(num);
+    return result;
+}
