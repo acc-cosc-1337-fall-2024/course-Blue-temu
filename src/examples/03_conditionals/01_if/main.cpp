@@ -11,10 +11,16 @@ int main()
 	auto even = false;
 	int value = 0;
 
+	auto result = false;
+	auto ch = 'a';
+
 	//prompt user for a keyboard number
 	//assign the number to the value variable
 	cout<<"Enter a number: ";
 	cin>>value;
+
+	cout<<"Enter a letter: ";
+	cin>>ch;
 
 
 	//call the is_even function with value as its argument
@@ -26,6 +32,11 @@ int main()
 
 	auto odd = is_odd(value);
 	cout<<odd<<"\n";
+
+	result = is_vowel(ch);
+
+	cout<<result<<"\n";
+
 
 
 	return 0;

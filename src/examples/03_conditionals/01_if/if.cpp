@@ -29,6 +29,12 @@ bool is_odd(int num)
     return remainder == 1;
 }
 
+bool is_vowel(char ch)
+{
+    auto result = ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u';
+    return result;
+}
+
 
 
 
