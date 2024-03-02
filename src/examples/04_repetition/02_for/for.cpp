@@ -15,3 +15,34 @@ RESULT:
 
 */
 
+using std::cout; using std::string;
+
+int sum_of_squares_for(int num)
+{
+    auto sum = 0;
+
+    for(auto i=0; i <= num; i++)
+    {
+        sum = sum + i * i;
+    }
+
+    return sum;
+}
+
+
+void display_numbers(int num)
+{
+    for(auto i=0; i < num; i++)
+    {
+        cout<<i+1<<"\n";
+    }
+}
+
+void display_for(string str)
+{
+    for(auto i=0; i < str.size(); i++)    
+    {
+        cout<<str[i]<<"\n";
+    }
+}
+
