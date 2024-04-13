@@ -67,7 +67,7 @@ TEST_CASE("Test win by first column")
   game.mark_board(7); // X
 
   REQUIRE(game.game_over() == true);
-  REQUIRE(game.get_winner() == "O");
+  REQUIRE(game.get_winner() == "X");
 }
 
 TEST_CASE("Test win by second column")
