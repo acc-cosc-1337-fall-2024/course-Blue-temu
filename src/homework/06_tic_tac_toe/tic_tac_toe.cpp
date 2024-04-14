@@ -33,22 +33,24 @@ void TicTacToe::mark_board(int position)
     set_next_player();
 }
 
-void TicTacToe::display_board() const
-{
-    for(long unsigned int i=0; i < pegs.size(); i += 3)
-    {
-        cout<<pegs[i]<<"|"<<pegs[i+1]<<"|"<<pegs[i+2]<<"\n";
-    }
-}
+//void TicTacToe::display_board() const
+//{
+//    for(long unsigned int i=0; i < pegs.size(); i += 3)
+//    {
+//        cout<<pegs[i]<<"|"<<pegs[i+1]<<"|"<<pegs[i+2]<<"\n";
+//    }
+//}
 
 //private functions
 void TicTacToe::clear_board()
 {
-    for(auto& peg: pegs)
+    pegs.clear();
+    for (int i = 0; i <9; i++)
     {
-        peg = " ";
+        pegs.push_back(" ");
     }
 }
+
 
 void TicTacToe::set_next_player()
 {
@@ -64,9 +66,9 @@ void TicTacToe::set_next_player()
 
 bool TicTacToe::check_board_full()
 {
-    for(long unsigned int i=0; i < pegs.size(); i++)
+      for (std::string peg: pegs)
     {
-        if(pegs[i] == " ")
+        if(peg == " ")
         {
             return false;
         }
@@ -125,4 +127,23 @@ void TicTacToe::set_winner()
   {
     winner = "X";
   }
+}
+
+std::istream& operator>>(std::istream& in, TicTacToe& game)
+{
+    int position;
+    cout<<"Enter Position [1-9]: ";
+    in>>position;
+    game.mark_board(position);
+    return in;
+
+}
+//overload ostream operator (returns ostream& not void)
+std::ostream& operator<<(std::ostream& out, const TicTacToe& game)
+{
+    for (int i=0; i < 9; i+=3)
+    {
+        out<<game.pegs[i]<<"|"<< game.pegs[i+1]<<"|"<< game.pegs[i+2]<<"\n";
+    }
+    return out;
 }
