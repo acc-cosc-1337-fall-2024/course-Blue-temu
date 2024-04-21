@@ -1,7 +1,10 @@
 //cpp
 #include "tic_tac_toe.h"
+#include <memory>
 
-using std::cout;
+using std::cout; using std::cout;
+
+
 
 bool TicTacToe::game_over()
 {
@@ -44,10 +47,9 @@ void TicTacToe::mark_board(int position)
 //private functions
 void TicTacToe::clear_board()
 {
-    pegs.clear();
-    for (int i = 0; i <9; i++)
+  for(std::string& i : pegs)
     {
-        pegs.push_back(" ");
+        i = " ";
     }
 }
 
@@ -80,39 +82,39 @@ bool TicTacToe::check_board_full()
 
 bool TicTacToe::check_column_win()
 {
-  for (int i=0; i<3; i++)
-    {
-      if (pegs[i] != " " && pegs[i] == pegs[i+3] && pegs[i] == pegs[i+6])
-      {
-        return true;
-      }
-    }
+  //for (int i=0; i<3; i++)
+  //  {
+  //    if (pegs[i] != " " && pegs[i] == pegs[i+3] && pegs[i] == pegs[i+6])
+  //    {
+  //      return true;
+  //    }
+  //  }
   return false;
 }
 
 bool TicTacToe::check_row_win()
 {
-  for (int i=0; i<9; i+=3)
-    {
-      if (pegs[i] != " " && pegs[i] == pegs[i+1] && pegs[i] == pegs[i+2])
-      {
-        return true;
-      }
-    }
+  //for (int i=0; i<9; i+=3)
+  //  {
+  //    if (pegs[i] != " " && pegs[i] == pegs[i+1] && pegs[i] == pegs[i+2])
+  //    {
+  //      return true;
+  //    }
+  //  }
   return false;
 }
 
 bool TicTacToe::check_diagonal_win()
 {
-  if (pegs[0] != " " && pegs[0] == pegs[4] && pegs[0] == pegs[8])
-  {
-    return true;
-  }
-
-  if (pegs[2] != " " && pegs[2] == pegs[4] && pegs[2] == pegs[6])
-  {
-    return true;
-  }
+  //if (pegs[0] != " " && pegs[0] == pegs[4] && pegs[0] == pegs[8])
+  //{
+  //  return true;
+  //}
+//
+  //if (pegs[2] != " " && pegs[2] == pegs[4] && pegs[2] == pegs[6])
+  //{
+  //  return true;
+  //}
   
   return false;
 }
@@ -141,9 +143,10 @@ std::istream& operator>>(std::istream& in, TicTacToe& game)
 //overload ostream operator (returns ostream& not void)
 std::ostream& operator<<(std::ostream& out, const TicTacToe& game)
 {
-    for (int i=0; i < 9; i+=3)
-    {
-        out<<game.pegs[i]<<"|"<< game.pegs[i+1]<<"|"<< game.pegs[i+2]<<"\n";
+    if(game.pegs.size() == 9) {
+        std::cout<<game.pegs[0]<<game.pegs[1]<<game.pegs[2]<<std::endl<<game.pegs[3]<<game.pegs[4]<<game.pegs[5]<<std::endl<<game.pegs[6]<<game.pegs[7]<<game.pegs[8]<<std::endl;
+    } else if(game.pegs.size() == 16) {
+        std::cout<<game.pegs[0]<<game.pegs[1]<<game.pegs[2]<<game.pegs[3]<<std::endl<<game.pegs[4]<<game.pegs[5]<<game.pegs[6]<<game.pegs[7]<<std::endl<<game.pegs[8]<<game.pegs[9]<<game.pegs[10]<<game.pegs[11]<<std::endl<<game.pegs[12]<<game.pegs[13]<<game.pegs[14]<<game.pegs[15]<<std::endl;
     }
-    return out;
-}
+        return out;
+    }

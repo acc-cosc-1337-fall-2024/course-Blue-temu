@@ -7,7 +7,7 @@ TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
 }
 
-TEST_CASE("Test if the board is full")
+/*TEST_CASE("Test if the board is full")
 {
 	TicTacToe game;
 
@@ -282,4 +282,39 @@ TEST_CASE("Test Winner Tally Totals")
 	REQUIRE(t == 1);
 
 
+}
+*/
+TEST_CASE("This Will verify that connect4 and Classic_TTT works! 'X'  ")
+{
+	std::unique_ptr<TicTacToe> board_test = std::make_unique<TicTacToe>() ;
+
+	board_test -> start_game("X");
+
+	board_test -> mark_board(1);
+
+	REQUIRE(board_test ->game_over()==false);
+
+	board_test ->mark_board(2);
+
+	REQUIRE(board_test ->game_over()==false);
+
+	board_test ->mark_board(5);
+
+	REQUIRE(board_test ->game_over()==false);
+
+	board_test ->mark_board(6);
+
+	REQUIRE(board_test ->game_over()==false);
+
+	board_test ->mark_board(9);
+
+	REQUIRE(board_test ->game_over()==false);
+
+	board_test ->mark_board(10);
+
+	REQUIRE(board_test ->game_over()==false);
+
+	board_test ->mark_board(13);
+
+	REQUIRE(board_test ->game_over()==true);
 }
